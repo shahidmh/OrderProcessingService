@@ -15,6 +15,7 @@ namespace OrderProcessService.Implementation
             rules.Add(new PhysicalProductOrderRule());
             rules.Add(new ActivateMembershipRule());
             rules.Add(new UpgradeMemberShipRule());
+            rules.Add(new VideoOrderRule());
         }
 
         public bool ProcessOrder()
@@ -33,5 +34,6 @@ namespace OrderProcessService.Implementation
             return string.Empty;
 
         }
+
     }
 }

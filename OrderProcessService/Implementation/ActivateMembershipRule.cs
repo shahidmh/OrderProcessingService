@@ -10,10 +10,13 @@ namespace OrderProcessService.Implementation
         {
             _emailNotification = new EmailNotification();
         }
+
+
         public bool IsApplicable(Order order)
         {
             return order.ProductTypes == ProductTypes.ActivateMemberShip;
         }
+
 
         public string ProcessRules(Order order)
         {

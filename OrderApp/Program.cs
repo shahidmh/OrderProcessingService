@@ -13,7 +13,7 @@ namespace OrderApp
             var order = new Order()
             {
                 OrderId = 1232,
-                ProductTypes = ProductTypes.ActivateMemberShip
+                ProductTypes = ProductTypes.UpgradeMemberShip
             };
 
             IOrderService orderService = new OrderService();
