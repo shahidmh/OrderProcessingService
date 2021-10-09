@@ -1,4 +1,4 @@
-﻿using OrderProcessService.Inteface;
+﻿using OrderProcessService.Interface;
 using System.Collections.Generic;
 using System.Linq;
 

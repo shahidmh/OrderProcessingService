@@ -1,4 +1,4 @@
-﻿namespace OrderProcessService.Inteface
+﻿namespace OrderProcessService.Interface
 {
 
     /// <summary

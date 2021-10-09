@@ -1,4 +1,4 @@
-﻿using OrderProcessService.Inteface;
+﻿using OrderProcessService.Interface;
 
 namespace OrderProcessService.Implementation
 {
