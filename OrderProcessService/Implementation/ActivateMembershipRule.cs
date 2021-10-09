@@ -3,6 +3,9 @@ using OrderProcessService.Model;
 
 namespace OrderProcessService.Implementation
 {
+    /// <summary>
+    /// Used for activating the memebership  
+    /// </summary>
     public class ActivateMembershipRule : IOrderProcessRule
     {
         private readonly EmailNotification _emailNotification;

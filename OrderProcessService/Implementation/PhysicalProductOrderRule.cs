@@ -3,6 +3,10 @@ using OrderProcessService.Model;
 
 namespace OrderProcessService.Implementation
 {
+
+    /// <summary>
+    /// Used for applying the rule for ordering the physical product 
+    /// </summary>
     public class PhysicalProductOrderRule : IOrderProcessRule
     {
         private readonly CommissionRule _commissionRule;

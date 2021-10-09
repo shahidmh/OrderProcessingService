@@ -18,11 +18,6 @@ namespace OrderProcessService.Implementation
             rules.Add(new VideoOrderRule());
         }
 
-        public bool ProcessOrder()
-        {
-            return true;
-        }
-
         public string ProcessOrder(Order order)
         {
 

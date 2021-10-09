@@ -3,6 +3,10 @@ using OrderProcessService.Model;
 
 namespace OrderProcessService.Implementation
 {
+
+    /// <summary>
+    /// Used for applying the rule for ordering upgrading membership 
+    /// </summary>
     public class UpgradeMemberShipRule : IOrderProcessRule
     {
         private readonly EmailNotification _emailNotification;

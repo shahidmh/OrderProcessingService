@@ -5,7 +5,7 @@ namespace OrderProcessService.Implementation
 {
 
     /// <summary>
-    /// Email class to manage the Email
+    /// used for managing email
     /// </summary>
     public class EmailNotification
     {

@@ -3,6 +3,10 @@ using OrderProcessService.Model;
 
 namespace OrderProcessService.Implementation
 {
+
+    /// <summary>
+    /// Used for applying the rule for ordering videos 
+    /// </summary>
     public class VideoOrderRule : IOrderProcessRule
     {
         public bool IsApplicable(Order order)

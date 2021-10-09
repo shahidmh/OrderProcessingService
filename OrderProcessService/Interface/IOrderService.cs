@@ -10,7 +10,7 @@ namespace OrderProcessService.Interface
     {
 
         /// <summary>
-        /// Execute the order rule if its applicable to the order.
+        /// Process the order based on the order and apply required order rule.
         /// </summary>
         /// <param name="order">Pass the order object</param>
         /// <returns></returns>

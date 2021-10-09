@@ -5,6 +5,10 @@ namespace OrderProcessService.Implementation
 {
     public class CommissionRule
     {
+        /// <summary>
+        /// Generate the commsion for the order
+        /// </summary>
+        /// <param name="order"></param>
         public void GenerateCommission(Order order)
         {
 

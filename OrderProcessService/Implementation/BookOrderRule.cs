@@ -4,7 +4,7 @@ using OrderProcessService.Model;
 namespace OrderProcessService.Implementation
 {
     /// <summary>
-    /// implement the logic for generating the slip for shipping 
+    /// Used for applying the rule for ordering activate membership 
     /// </summary>
     public class BookOrderRule : IOrderProcessRule
     {
