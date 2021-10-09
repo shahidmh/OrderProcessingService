@@ -26,7 +26,7 @@ namespace OrderProcessService.Implementation
                     rules.Add(new GenerateDuplicateSlipRule(order.Department));
                     break;
                 case ProductTypes.ActivateMemberShip:
-                    rules.Add(new ActivateMembership());
+                    rules.Add(new ActivateMembershipRule());
                     break;
                 default:
                     break;
