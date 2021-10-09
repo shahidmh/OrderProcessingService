@@ -1,5 +1,6 @@
 using OrderProcessService;
 using OrderProcessService.Implementation;
+using OrderProcessService.Model;
 using Xunit;
 
 namespace TestOrderProcessing
@@ -11,15 +12,26 @@ namespace TestOrderProcessing
         public void TestPhysicalProductOrder()
         {
             var order = new Order();
-            var orderProcessed = order.ProcessOrder(ProductTypes.PhysicalProduct);
+            order.ProductTypes = ProductTypes.book;
+            var ordeSservice = new OrderService();
+            var orderProcessed = ordeSservice.ProcessOrder(order);
             Assert.True(orderProcessed);
         }
         [Fact]
         public void TestBookOrder()
         {
             var order = new Order();
-            var orderProcessed = order.ProcessOrder(ProductTypes.book);
+            order.ProductTypes = ProductTypes.book;
+            var ordeSservice = new OrderService();
+            var orderProcessed = ordeSservice.ProcessOrder(order);
             Assert.True(orderProcessed);
         }
+        [Fact]
+        public void OrderSlipForShipping()
+        {
+            var result = new GeneratePackingSlipRule().ApplyOrderRule();
+            Assert.Matches("Generating package slip", result);
+        }
+
     }
 }

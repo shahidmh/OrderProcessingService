@@ -1,4 +1,6 @@
-﻿namespace OrderProcessService.Interface
+﻿using OrderProcessService.Model;
+
+namespace OrderProcessService.Interface
 {
 
     /// <summary
@@ -6,6 +8,6 @@
     /// </summary>
     public interface IOrder
     {
-        public bool ProcessOrder(ProductTypes productType);
+        public bool ProcessOrder(Order productType);
     }
 }

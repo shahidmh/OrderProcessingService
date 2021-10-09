@@ -4,6 +4,13 @@ namespace OrderProcessService.Implementation
 {
     public class GenerateDuplicateSlipRule : IOrderProcessRule
     {
+
+        public string _departmentName { get; set; }
+
+        public GenerateDuplicateSlipRule(string departmentName)
+        {
+            _departmentName = departmentName;
+        }
         public bool IsRuleApplied { get; set; }
 
 
@@ -14,7 +21,7 @@ namespace OrderProcessService.Implementation
         public string ApplyOrderRule()
         {
             IsRuleApplied = true;
-            return "Generating duplicate package slip";
+            return $"Generating duplicate package slip for {_departmentName}";
         }
     }
 }

@@ -3,6 +3,7 @@
     public enum ProductTypes
     {
         PhysicalProduct,
-        book
+        book,
+        ActivateMemberShip
     }
 }
