@@ -1,7 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using OrderProcessService.Inteface;
+using System.Collections.Generic;
 using System.Linq;
 
-namespace OrderProcessService
+namespace OrderProcessService.Implementation
 {
     public class Order : IOrder
     {
@@ -18,6 +19,10 @@ namespace OrderProcessService
             {
                 case ProductTypes.PhysicalProduct:
                     rules.Add(new GeneratePackingSlipRule());
+                    break;
+                case ProductTypes.book:
+                    rules.Add(new GeneratePackingSlipRule());
+                    rules.Add(new GenerateDuplicateSlipRule());
                     break;
                 default:
                     break;
