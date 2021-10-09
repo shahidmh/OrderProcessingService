@@ -1,13 +1,14 @@
 ﻿using OrderProcessService.Model;
+using System;
 
 namespace OrderProcessService.Implementation
 {
     public class CommissionRule
     {
-        public string GenerateCommission(Order order)
+        public void GenerateCommission(Order order)
         {
 
-            return $"Generate a commission payment to the agent for the order : {order.OrderId}";
+            Console.WriteLine($"Generate a commission payment to the agent for the order : {order.OrderId}");
         }
     }
 }

@@ -22,8 +22,8 @@ namespace TestOrderProcessing
         {
             var order = new Order();
             order.ProductTypes = ProductTypes.Book;
-            var ordeSservice = new OrderService();
-            var orderProcessed = ordeSservice.ProcessOrder(order);
+            var orderService = new OrderService();
+            var orderProcessed = orderService.ProcessOrder(order);
             Assert.Matches("create a duplicate packing slip for the royalty department", orderProcessed);
         }
         [Fact]
@@ -31,8 +31,8 @@ namespace TestOrderProcessing
         {
             var order = new Order();
             order.ProductTypes = ProductTypes.ActivateMemberShip;
-            var ordeSservice = new OrderService();
-            var orderProcessed = ordeSservice.ProcessOrder(order);
+            var orderService = new OrderService();
+            var orderProcessed = orderService.ProcessOrder(order);
             Assert.Matches("activate membership", orderProcessed);
         }
 
@@ -41,11 +41,19 @@ namespace TestOrderProcessing
         {
             var order = new Order();
             order.ProductTypes = ProductTypes.UpgradeMemberShip;
-            var ordeSservice = new OrderService();
-            var orderProcessed = ordeSservice.ProcessOrder(order);
+            var orderService = new OrderService();
+            var orderProcessed = orderService.ProcessOrder(order);
             Assert.Matches("apply the upgrade", orderProcessed);
         }
-
+        [Fact]
+        public void TestVideoOrder()
+        {
+            var order = new Order();
+            order.ProductTypes = ProductTypes.Video;
+            var orderService = new OrderService();
+            var orderProcessed = orderService.ProcessOrder(order);
+            Assert.Matches("Add a free “First Aid” video to the packing slip (the result of a court decision in 1997).", orderProcessed);
+        }
 
     }
 }

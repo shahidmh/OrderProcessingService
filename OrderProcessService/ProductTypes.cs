@@ -6,7 +6,8 @@
         PhysicalProduct,
         ActivateMemberShip,
         UpgradeMemberShip,
-        Video
+        Video,
+        Test
 
     }
 }

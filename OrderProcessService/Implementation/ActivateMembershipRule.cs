@@ -5,8 +5,11 @@ namespace OrderProcessService.Implementation
 {
     public class ActivateMembershipRule : IOrderProcessRule
     {
-        public bool IsRuleApplied { get; set; }
-
+        private readonly EmailNotification _emailNotification;
+        public ActivateMembershipRule()
+        {
+            _emailNotification = new EmailNotification();
+        }
         public bool IsApplicable(Order order)
         {
             return order.ProductTypes == ProductTypes.ActivateMemberShip;
@@ -14,6 +17,7 @@ namespace OrderProcessService.Implementation
 
         public string ProcessRules(Order order)
         {
+            _emailNotification.SendEmail(order);
             return "activate membership";
         }
     }

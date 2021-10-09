@@ -5,7 +5,12 @@ namespace OrderProcessService.Implementation
 {
     public class PhysicalProductOrderRule : IOrderProcessRule
     {
-        private CommissionRule commission;
+        private readonly CommissionRule _commissionRule;
+
+        public PhysicalProductOrderRule()
+        {
+            _commissionRule = new CommissionRule();
+        }
 
 
 
@@ -16,7 +21,7 @@ namespace OrderProcessService.Implementation
 
         public string ProcessRules(Order order)
         {
-            commission.GenerateCommission(order);
+            _commissionRule.GenerateCommission(order);
             return $"Generating package slip for shipping";
         }
     }
