@@ -8,6 +8,6 @@ namespace OrderProcessService.Interface
     /// </summary>
     public interface IOrder
     {
-        public bool ProcessOrder(Order productType);
+        public string ProcessOrder(Order productType);
     }
 }

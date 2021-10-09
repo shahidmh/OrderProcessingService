@@ -12,26 +12,37 @@ namespace TestOrderProcessing
         public void TestPhysicalProductOrder()
         {
             var order = new Order();
-            order.ProductTypes = ProductTypes.book;
+            order.ProductTypes = ProductTypes.PhysicalProduct;
             var ordeSservice = new OrderService();
             var orderProcessed = ordeSservice.ProcessOrder(order);
-            Assert.True(orderProcessed);
+            Assert.Matches("Generating package slip", orderProcessed);
         }
         [Fact]
         public void TestBookOrder()
         {
             var order = new Order();
-            order.ProductTypes = ProductTypes.book;
+            order.ProductTypes = ProductTypes.Book;
             var ordeSservice = new OrderService();
             var orderProcessed = ordeSservice.ProcessOrder(order);
-            Assert.True(orderProcessed);
+            Assert.Matches("Generating package slip", orderProcessed);
         }
-        [Fact]
-        public void OrderSlipForShipping()
-        {
-            var result = new GeneratePackingSlipRule().ApplyOrderRule();
-            Assert.Matches("Generating package slip", result);
-        }
+        //[Fact]
+        //public void OrderSlipForShipping()
+        //{
+        //    var order = new Order();
+        //    order.ProductTypes = ProductTypes.Book;
+        //    var result = new BookOrderRule().ProcessRules(order);
+        //    Assert.Matches("Generating package slip", result);
+        //}
+
+        //[Fact]
+        //public void DuplocateSlipForDepartment()
+        //{
+        //    string department = "royalty";
+        //    var result = new PhysicalProductOrderRule().ProcessRules(order);
+        //    Assert.Matches($"Generating duplicate package slip for {department}", result);
+        //}
+
 
     }
 }

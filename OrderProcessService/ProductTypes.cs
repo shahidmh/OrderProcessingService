@@ -2,8 +2,10 @@
 {
     public enum ProductTypes
     {
+        Book,
         PhysicalProduct,
-        book,
-        ActivateMemberShip
+        ActivateMemberShip,
+        UpgradeMemberShip,
+
     }
 }

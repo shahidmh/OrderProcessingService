@@ -1,16 +1,19 @@
 ﻿using OrderProcessService.Interface;
+using OrderProcessService.Model;
 
 namespace OrderProcessService.Implementation
 {
     public class UpgradeMemberShipRule : IOrderProcessRule
     {
-        public bool IsRuleApplied { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
 
-        public string ApplyOrderRule()
+        public bool IsApplicable(Order order)
         {
-            return "Upgarde membership";
+            return order.ProductTypes == ProductTypes.UpgradeMemberShip;
         }
 
-
+        public string ProcessRules(Order order)
+        {
+            return "apply theupgrade";
+        }
     }
 }

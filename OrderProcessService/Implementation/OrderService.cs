@@ -1,45 +1,37 @@
 ﻿using OrderProcessService.Interface;
 using OrderProcessService.Model;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace OrderProcessService.Implementation
 {
+
     public class OrderService : IOrder
     {
+        private readonly List<IOrderProcessRule> rules;
+        public OrderService()
+        {
+            rules = new List<IOrderProcessRule>();
+            rules.Add(new BookOrderRule());
+            rules.Add(new PhysicalProductOrderRule());
+            rules.Add(new ActivateMembershipRule());
+            rules.Add(new UpgradeMemberShipRule());
+        }
 
         public bool ProcessOrder()
         {
             return true;
         }
 
-        public bool ProcessOrder(Order order)
+        public string ProcessOrder(Order order)
         {
-            List<IOrderProcessRule> rules = new List<IOrderProcessRule>();
-            switch (order.ProductTypes)
-            {
-                case ProductTypes.PhysicalProduct:
-                    rules.Add(new GeneratePackingSlipRule());
-                    break;
-                case ProductTypes.book:
-                    rules.Add(new GeneratePackingSlipRule());
-                    rules.Add(new GenerateDuplicateSlipRule(order.Department));
-                    break;
-                case ProductTypes.ActivateMemberShip:
-                    rules.Add(new ActivateMembershipRule());
-                    break;
-                default:
-                    break;
 
-            }
             foreach (var rule in rules)
             {
-                rule.ApplyOrderRule();
+                if (rule.IsApplicable(order))
+                    return rule.ProcessRules(order);
             }
-            if (rules.Any())
-                return rules.All(rule => rule.IsRuleApplied == true);
-            else
-                return false;
+            return string.Empty;
+
         }
     }
 }

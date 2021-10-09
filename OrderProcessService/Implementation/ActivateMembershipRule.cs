@@ -1,4 +1,5 @@
 ﻿using OrderProcessService.Interface;
+using OrderProcessService.Model;
 
 namespace OrderProcessService.Implementation
 {
@@ -6,7 +7,12 @@ namespace OrderProcessService.Implementation
     {
         public bool IsRuleApplied { get; set; }
 
-        public string ApplyOrderRule()
+        public bool IsApplicable(Order order)
+        {
+            return order.ProductTypes == ProductTypes.ActivateMemberShip;
+        }
+
+        public string ProcessRules(Order order)
         {
             return "activate membership";
         }
