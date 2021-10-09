@@ -14,7 +14,7 @@ namespace TestOrderProcessing
         public void TestPhysicalProductOrder()
         {
             var order = new Order();
-            var orderProcessed = order.ProcessOrder(ProductTypes.book);
+            var orderProcessed = order.ProcessOrder(ProductTypes.PhysicalProduct);
             Assert.True(orderProcessed);
         }
 
