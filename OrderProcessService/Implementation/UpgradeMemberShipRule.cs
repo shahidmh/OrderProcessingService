@@ -13,7 +13,7 @@ namespace OrderProcessService.Implementation
 
         public string ProcessRules(Order order)
         {
-            return "apply theupgrade";
+            return "apply the upgrade";
         }
     }
 }

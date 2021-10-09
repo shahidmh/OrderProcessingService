@@ -8,6 +8,11 @@ namespace OrderProcessService.Implementation
     /// </summary>
     public class BookOrderRule : IOrderProcessRule
     {
+        private readonly CommissionRule _commissionRule;
+        public BookOrderRule()
+        {
+            _commissionRule = new CommissionRule();
+        }
         public bool IsRuleApplied { get; set; }
 
 
@@ -19,6 +24,7 @@ namespace OrderProcessService.Implementation
 
         public string ProcessRules(Order order)
         {
+            _commissionRule.GenerateCommission(order);
             return "create a duplicate packing slip for the royalty department";
         }
     }

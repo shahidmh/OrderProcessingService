@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace OrderProcessService.Implementation
 {
 
-    public class OrderService : IOrder
+    public class OrderService : IOrderService
     {
         private readonly List<IOrderProcessRule> rules;
         public OrderService()

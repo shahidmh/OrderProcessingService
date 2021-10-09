@@ -1,18 +1,13 @@
-﻿using OrderProcessService.Interface;
-using OrderProcessService.Model;
+﻿using OrderProcessService.Model;
 
 namespace OrderProcessService.Implementation
 {
-    public class CommissionRule : IOrderProcessRule
+    public class CommissionRule
     {
-        public bool IsApplicable(Order order)
+        public string GenerateCommission(Order order)
         {
-            throw new System.NotImplementedException();
-        }
 
-        public string ProcessRules(Order order)
-        {
-            return "generate a commission payment to the agent";
+            return $"Generate a commission payment to the agent for the order : {order.OrderId}";
         }
     }
 }

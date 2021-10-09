@@ -15,7 +15,7 @@ namespace TestOrderProcessing
             order.ProductTypes = ProductTypes.PhysicalProduct;
             var ordeSservice = new OrderService();
             var orderProcessed = ordeSservice.ProcessOrder(order);
-            Assert.Matches("Generating package slip", orderProcessed);
+            Assert.Matches("Generating package slip for shipping", orderProcessed);
         }
         [Fact]
         public void TestBookOrder()
@@ -24,24 +24,27 @@ namespace TestOrderProcessing
             order.ProductTypes = ProductTypes.Book;
             var ordeSservice = new OrderService();
             var orderProcessed = ordeSservice.ProcessOrder(order);
-            Assert.Matches("Generating package slip", orderProcessed);
+            Assert.Matches("create a duplicate packing slip for the royalty department", orderProcessed);
         }
-        //[Fact]
-        //public void OrderSlipForShipping()
-        //{
-        //    var order = new Order();
-        //    order.ProductTypes = ProductTypes.Book;
-        //    var result = new BookOrderRule().ProcessRules(order);
-        //    Assert.Matches("Generating package slip", result);
-        //}
+        [Fact]
+        public void TestMembershipOrder()
+        {
+            var order = new Order();
+            order.ProductTypes = ProductTypes.ActivateMemberShip;
+            var ordeSservice = new OrderService();
+            var orderProcessed = ordeSservice.ProcessOrder(order);
+            Assert.Matches("activate membership", orderProcessed);
+        }
 
-        //[Fact]
-        //public void DuplocateSlipForDepartment()
-        //{
-        //    string department = "royalty";
-        //    var result = new PhysicalProductOrderRule().ProcessRules(order);
-        //    Assert.Matches($"Generating duplicate package slip for {department}", result);
-        //}
+        [Fact]
+        public void TestUpgradeMembershipOrder()
+        {
+            var order = new Order();
+            order.ProductTypes = ProductTypes.UpgradeMemberShip;
+            var ordeSservice = new OrderService();
+            var orderProcessed = ordeSservice.ProcessOrder(order);
+            Assert.Matches("apply the upgrade", orderProcessed);
+        }
 
 
     }
