@@ -19,7 +19,7 @@ namespace OrderProcessService.Implementation
 
         public bool IsApplicable(Order order)
         {
-            return order.ProductTypes == ProductTypes.Book;
+            return order != null && order.ProductTypes == ProductTypes.Book;
         }
 
         public string ProcessRules(Order order)

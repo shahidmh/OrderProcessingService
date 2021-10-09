@@ -26,6 +26,7 @@ namespace TestOrderProcessing
             var orderProcessed = orderService.ProcessOrder(order);
             Assert.Equal("create a duplicate packing slip for the royalty department", orderProcessed);
         }
+
         [Fact]
         public void TestMembershipOrder()
         {
@@ -54,6 +55,14 @@ namespace TestOrderProcessing
             var orderProcessed = orderService.ProcessOrder(order);
             Assert.Equal("Add a free “First Aid” video to the packing slip (the result of a court decision in 1997).", orderProcessed);
         }
-
+        [Fact]
+        public void TestOrderProcessWithoutOrderType()
+        {
+            var order = new Order();
+            order = null;
+            var orderService = new OrderService();
+            var orderProcessed = orderService.ProcessOrder(order);
+            Assert.Equal("Add a free “First Aid” video to the packing slip (the result of a court decision in 1997).", orderProcessed);
+        }
     }
 }

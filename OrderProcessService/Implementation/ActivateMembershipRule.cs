@@ -14,7 +14,7 @@ namespace OrderProcessService.Implementation
 
         public bool IsApplicable(Order order)
         {
-            return order.ProductTypes == ProductTypes.ActivateMemberShip;
+            return order != null && order.ProductTypes == ProductTypes.ActivateMemberShip;
         }
 
 
